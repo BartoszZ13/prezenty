@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Wesołych Świąt!</title>
+	<meta charset="utf-8">
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			text-align: center;
+			font-family: "georgia";
+		}
+		body {
+			animation: bg 8s infinite ease;
+		}
+		h1 {
+			font-size: 100px;
+			color: black;
+			margin: 20px 0px 120px 0;
+		}
+		p {
+			font-size: 20px;
+			font-weight: bold;
+			margin-bottom: 100px;
+		}
+		#gift {
+			width:300px;
+			user-select: none;
+			transition: all 0.2s ease-out;
+		}
+		#gift:hover {
+			width: 370px;
+			transition: all 0.2s ease-out;
+			cursor: pointer;
+		}
+		#gift:active {
+			width: 340px;
+			transition: all 0.1s ease-out;
+			cursor: pointer;
+		}
+		div {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			justify-content: space-around;
+			width: 100%;
+		}
+		h2 {
+			min-width: 20%;
+			max-width: 20%;
+			font-size: 30px;
+			font-weight: bolder;
+			color: #f2e8cf;
+		}
+		button {
+			background: none;
+			border: none;
+		}
+		footer {
+			position: absolute;
+			bottom:20px;
+			right: 20px;
+			text-align: right;
+			width: 100%;
+			font-size: 30px;
+			color: #184621;
+			font-weight: bold;
+		}
+		@keyframes bg {
+			0% {
+				background-color: #a7c957;
+			}
+			25% {
+				background-color: #6a994e;
+			}
+			50% {
+				background-color: #386641;
+			}
+			75% {
+				background-color: #bc4749;
+			}
+			100% {
+				background-color: #a7c957;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Ho Ho Ho!</h1>
+	<p>Z okazji Świąt Bożego Narodzenia, Św. Mikołaj przynosi Ci...</p>
+	<div>
+	<h2 id="tekst1"></h2>
+	<button onclick="zyczenia()"><img src="gift.png" id="gift"></button>
+	<h2 id="tekst2"></h2>
+	</div>
+	<footer>~ Bartek</footer>
+	<script>
+		var tekst = true;
+		var losowezyczenie = 10;
+		var last = 10;
+		var last2 = 10;
+		function zyczenia() {
+            const lista= [
+                "Dużo Boga",
+                "Zdrówko",
+                "Spełnienie marzeń",
+                "Szczęśliwego Frodusia",
+                "Zdrowy sen",
+		"Mnóstwo szczęścia",
+		"Wymarzoną przyszłość",
+		"Pomoc w trudnych decyzjach",
+		"Miłość",
+		"Wiarę",
+		"Nadzieję",
+		"Dar mądrości",
+		"Wsparcie",
+		"Ogrom cierpliwości",
+		"Dużo pozytywnej energii",
+		"Kropelkę optymizmu",
+		"Uśmiech",
+		"Ciepełko na Święta",
+		"Nowy, lepszy rok",
+		"Odwagę",
+		"Szczęście w relacjach",
+		"Boga jako przewodnika",
+		"Brak stresu",
+		"Bezglutenowe pierniczki",
+		"Truskaweczki w czekoladzie",
+		"Optymistycznego, informatycznego, gardzącego snem elfa chętnego do pogadania whenever :pp"
+            ];
+	    while (losowezyczenie == last || losowezyczenie == last2) {
+            	losowezyczenie = lista[Math.floor(Math.random() * lista.length)];
+	    }
+	    last2 = last;
+	    last = losowezyczenie;
+	    if (tekst) {
+		document.getElementById("tekst1").innerHTML = losowezyczenie;
+	    } else {
+		document.getElementById("tekst2").innerHTML = losowezyczenie;
+	    }
+	    tekst = !tekst;
+            
+        }
+	</script>
+</body>
+</html>
